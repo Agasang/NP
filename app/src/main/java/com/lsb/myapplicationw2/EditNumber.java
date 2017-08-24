@@ -7,6 +7,9 @@ import android.text.SpannableStringBuilder;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.DecimalFormat;
 
@@ -20,6 +23,7 @@ public class EditNumber extends android.support.v7.widget.AppCompatEditText {
 
     public EditNumber(Context context) {
         this(context, null, 0);
+
 
     }
 

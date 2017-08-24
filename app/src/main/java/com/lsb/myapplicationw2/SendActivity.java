@@ -51,12 +51,12 @@ public class SendActivity extends AppCompatActivity {
                 mPayLayout.setVisibility(View.VISIBLE);
                 mPayLayout2.setVisibility(View.VISIBLE);
                 mPayBankLayout.setVisibility(View.VISIBLE);
-                mPayPeopleText.setText(getIntent().getStringExtra("paypeople"));
+                mPayPeopleText.setText(getIntent().getStringExtra("paypeople") + " 님");
             } else {
 
             }
 
-            mMaxMoneyText.setText(getIntent().getStringExtra("MaxMoney"));
+            mMaxMoneyText.setText(getIntent().getStringExtra("MaxMoney") + " 원");
 
             mMaximumNum = getIntent().getIntExtra("num", 0);
             int checkPeople = getIntent().getIntExtra("checkPeople", 32);
@@ -65,14 +65,15 @@ public class SendActivity extends AppCompatActivity {
 
                 } else {
                     name_money = name_money + getIntent().getStringExtra("name" + i) + "\t" + "\t"
-                            + getIntent().getStringExtra("Money" + i);
+                            + getIntent().getStringExtra("Money" + i) + " 원"
+                            + getIntent().getStringExtra("division" + i) ;
 
                     name_money = name_money + "\n";
                 }
 
 
             }
-            mNameMoneyText.setText(name_money);
+            mNameMoneyText.setText("\n"+name_money);
             mTitleText.setText(getIntent().getStringExtra("title"));
         }
 
@@ -82,9 +83,9 @@ public class SendActivity extends AppCompatActivity {
     private void display() {
         if (mPayCheck.equals("OK")) {
             mSendDisplay = "제  목  :  " + mTitleText.getText().toString() + "\n" + "\n"
-                    + "결  제  :  " + mPayPeopleText.getText().toString() + " 님" + "\n" + "\n"
+                    + "결  제  :  " + mPayPeopleText.getText().toString() +  "\n" + "\n"
                     + "금  액  :  " + mMaxMoneyText.getText().toString() + "원" + "\n" + "\n"
-                    + "총  원  :  " + mMaximumNum + "명" + "\n" + "\n"
+                    + "총  원  :  " + mMaximumNum + "명" +  "\t"+ "( )절사" +  "\n" + "\n"
                     + "==================" + "\n"
                     + mBankText.getText().toString() + "\n"
                     + "계좌번호 : " + mBankNumberText.getText().toString()+ "\n"
@@ -94,7 +95,7 @@ public class SendActivity extends AppCompatActivity {
         } else {
             mSendDisplay = "제  목  :  " + mTitleText.getText().toString() + "\n" + "\n"
                     + "금  액  :  " + mMaxMoneyText.getText().toString() +  "원" + "\n" + "\n"
-                    + "총  원  :  " + mMaximumNum + "명" + "\n" + "\n"
+                    + "총  원  :  " + mMaximumNum + "명" +  "\t"+ "( )절사" + "\n" + "\n"
                     + "==================" + "\n"
                     + mNameMoneyText.getText().toString();
         }

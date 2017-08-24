@@ -11,92 +11,162 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="8"
-            android:orientation="vertical">
-
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="24dp">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center">
+                android:layout_gravity="center"
+                android:orientation="horizontal">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="그룹이름" />
+                    android:orientation="vertical">
 
-                <EditText
-                    android:id="@+id/edit_title"
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
+                        android:text="그룹 제목 "
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="20dp"
+                        android:text="총 금액   "
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="21dp"
+                        android:text="참가 인원   "
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="1차,2차, 메뉴 등" />
+                    android:orientation="vertical">
 
+                    <EditText
+                        android:id="@+id/edit_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="1차,2차, 메뉴 등"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/edit_money"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="총 금액"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/edit_peoplenum"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="인원 수"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:textSize="18sp" />
+                </LinearLayout>
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="총 금액" />
-
-                <com.lsb.myapplicationw2.EditNumber
-
-                    android:id="@+id/edit_money"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="총 금액"
-                    android:text="10000"
-                    android:inputType="number" />
-
-
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="참가 인원" />
+                    android:text="상세한 계산을 원한다면 체크 "
+                    android:textSize="18sp" />
 
-                <EditText
-                    android:id="@+id/edit_peoplenum"
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+
+                    <CheckBox
+                        android:id="@+id/checkbox_name_check"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="onCheckBoxClicked"
+                        android:text="이름 추가"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="인원 수"
-                    android:inputType="number" />
+                    android:orientation="vertical">
 
-            </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="버리는 단위"
+                        android:textSize="16sp" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center">
+                    <RadioGroup
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="상세한 계산을 원한다면 체크 " />
+                        android:id="@+id/radio_group_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
-                <CheckBox
-                    android:id="@+id/checkbox_name_check"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="onCheckBoxClicked"
-                    android:text="이름 추가" />
+                        <RadioButton
+                            android:id="@+id/radio_button_0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:text="없음" />
 
+                        <RadioButton
+                            android:id="@+id/radio_button_10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1원 " />
+
+                        <RadioButton
+                            android:id="@+id/radio_button_100"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="10원 " />
+
+                        <RadioButton
+                            android:id="@+id/radio_button_1000"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="100원 " />
+
+                    </RadioGroup>
+
+
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
 
@@ -104,26 +174,22 @@
             android:id="@+id/add_view_lay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:gravity="center"
+            android:orientation="vertical"
+            android:paddingTop="8dp"
             android:visibility="gone">
 
 
         </LinearLayout>
 
-        <LinearLayout
+
+        <Button
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2">
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="onClickButton"
-                android:padding="8dp"
-                android:text="확인" />
-
-        </LinearLayout>
+            android:layout_height="wrap_content"
+            android:onClick="onClickButton"
+            android:padding="8dp"
+            android:text="확인"
+            android:textSize="18sp" />
 
 
     </LinearLayout>
