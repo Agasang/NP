@@ -24,12 +24,7 @@ import android.widget.Toast;
 
 import java.text.DecimalFormat;
 
-import static android.R.attr.data;
-import static android.R.attr.name;
-import static android.R.attr.value;
-import static android.text.InputType.TYPE_CLASS_TEXT;
-
-public class MainActivityW2 extends AppCompatActivity  {
+public class MainActivityW2 extends AppCompatActivity {
 
     private EditText mTitleText;
     private EditText mMoneyText;
@@ -48,7 +43,7 @@ public class MainActivityW2 extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_w2);
-//f
+
 
         mTitleText = (EditText) findViewById(R.id.edit_title);
         mMoneyText = (EditText) findViewById(R.id.edit_money);
@@ -117,68 +112,74 @@ public class MainActivityW2 extends AppCompatActivity  {
 
         });
 
-                mPeopleNumText.addTextChangedListener(new TextWatcher() {
+        mPeopleNumText.addTextChangedListener(new TextWatcher() {
 
-                    @Override
-                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-                    }
+            }
 
-                    @Override
-                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
 
+                mAddNameLay.removeAllViews();
+
+                if (mCheckName.isChecked()) {
+                    String people_check = mPeopleNumText.getText().toString();
+
+                    if ((people_check.trim().isEmpty())) {
                         mAddNameLay.removeAllViews();
-                        if (mCheckName.isChecked()) {
-                            String people_check = mPeopleNumText.getText().toString();
-
-                            if ((people_check.trim().isEmpty())) {
-                                mAddNameLay.removeAllViews();
 
 
-                            } else if (Integer.valueOf(s.toString()) > 30) {
-                                mPeopleNumText.setText("");
-                                Toast.makeText(MainActivityW2.this, "인원은 30명 까지 입력 가능합니다.", Toast.LENGTH_SHORT).show();
+                    } else if (Integer.valueOf(s.toString()) > 30) {
+                        mPeopleNumText.setText("");
+                        Toast.makeText(MainActivityW2.this, "인원은 30명 까지 입력 가능합니다.", Toast.LENGTH_SHORT).show();
 
 
-                            } else if (!(people_check.trim().isEmpty())) {
+                    } else if (!(people_check.trim().isEmpty())) {
 
-                                for (int i = 0; i < Integer.valueOf(s.toString()); i++) {
-                                    EditText name_text = new EditText(MainActivityW2.this);
-                                    name_text.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-                                    name_text.setPadding(20, 10, 10, 10);
-                                    name_text.setTextSize(24);
-                                    name_text.requestFocus();
-                                    name_text.setImeOptions(EditorInfo.IME_ACTION_NEXT);
-                                    name_text.setInputType(InputType.TYPE_CLASS_TEXT);
-                                    name_text.setHint((i + 1) + ". " + "이름을 입력 해 주세요");
-                                    name_text.setTag("NameView" + i);
-                                    name_text.setId(i);
-                                    mAddNameLay.addView(name_text);
-                                }
-                            }
-                        } else {
-                            String people_check = mPeopleNumText.getText().toString();
-                            if ((people_check.trim().isEmpty())) {
-                                mAddNameLay.removeAllViews();
+                        for (int i = 0; i < Integer.valueOf(s.toString()); i++) {
+                            EditText name_text = new EditText(MainActivityW2.this);
+                            name_text.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.
+                                    WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                            name_text.setPadding(20, 10, 10, 10);
+                            name_text.setTextSize(24);
 
 
-                            } else if (Integer.valueOf(s.toString()) > 30) {
-                                mPeopleNumText.setText("");
-                                Toast.makeText(MainActivityW2.this, "인원은 30명 까지 입력 가능합니다.", Toast.LENGTH_SHORT).show();
+                            name_text.requestFocus();
+                            name_text.setImeOptions(EditorInfo.IME_ACTION_NEXT);
+                            name_text.setInputType(InputType.TYPE_CLASS_TEXT);
 
 
-                            }
-
+                            name_text.setHint((i + 1) + ". " + "이름을 입력 해 주세요");
+                            name_text.setTag("NameView" + i);
+                            name_text.setId(i);
+                            mAddNameLay.addView(name_text);
                         }
+                    }
+                } else {
+                    String people_check = mPeopleNumText.getText().toString();
+                    if ((people_check.trim().isEmpty())) {
+                        mAddNameLay.removeAllViews();
+
+
+                    } else if (Integer.valueOf(s.toString()) > 30) {
+                        mPeopleNumText.setText("");
+                        Toast.makeText(MainActivityW2.this, "인원은 30명 까지 입력 가능합니다.", Toast.LENGTH_SHORT).show();
+
 
                     }
 
-                    @Override
-                    public void afterTextChanged(Editable s) {
+                }
 
-                    }
+            }
 
-                });
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+
+        });
 
 
     }
@@ -202,10 +203,12 @@ public class MainActivityW2 extends AppCompatActivity  {
         } else {
             for (int i = 0; i < Integer.valueOf(people_num); i++) {
                 EditText name_text = new EditText(MainActivityW2.this);
+
                 if (savedInstanceState.getString("nameText" + i) != null) {
                     name = savedInstanceState.getString("nameText" + i);
                     name_text.setText(name);
                 }
+
                 name_text.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
                 name_text.setPadding(20, 10, 10, 10);
                 name_text.setTextSize(24);
@@ -231,9 +234,11 @@ public class MainActivityW2 extends AppCompatActivity  {
 
         outState.putBoolean("ischeck", mCheckName.isChecked()); // 체크박스 저장
         outState.putString("peoplenum", mPeopleNumText.getText().toString());
+
         if (mCheckName.isChecked()) {
             for (int i = 0; i < Integer.valueOf(mPeopleNumText.getText().toString()); i++) {
-                EditText PeopleName = (EditText) findViewById(i);
+                EditText PeopleName = (EditText) mAddNameLay.findViewWithTag("NameView" + i);
+//                EditText PeopleName = (EditText) findViewById(i);
                 if (!PeopleName.getText().toString().trim().equals("")) {
                     outState.putString("nameText" + i, PeopleName.getText().toString());
                 }
@@ -250,9 +255,11 @@ public class MainActivityW2 extends AppCompatActivity  {
         if (mCheckName.isChecked()) {
             mAddNameLay.removeAllViews();
             mAddNameLay.setVisibility(View.VISIBLE);
+
             if (mPeopleNumText.getText().toString().trim().equals("")) {
                 Toast.makeText(this, "인원을 입력 해 주세요", Toast.LENGTH_SHORT).show();
                 mCheckName.setChecked(false);
+
             } else {
                 for (int i = 0; i < Integer.valueOf(mPeopleNumText.getText().toString()); i++) {
                     EditText name_text = new EditText(MainActivityW2.this);
@@ -275,32 +282,38 @@ public class MainActivityW2 extends AppCompatActivity  {
             mAddNameLay.removeAllViews();
         }
 
-
     }
 
     public void onClickButton(View view) {
+
+
         String money_check = mMoneyText.getText().toString().replace(",", "").trim();
+
         String people_check = mPeopleNumText.getText().toString().trim();
 
-        if (Integer.valueOf(money_check) == 0 && Integer.valueOf(people_check) == 0) {
-            Toast.makeText(this, "계산 할 수 없습니다.", Toast.LENGTH_SHORT).show();
-        } else {
+        if (money_check.equals("0") && people_check.equals("0") || money_check.equals("0")) {
 
+            Toast.makeText(this, "계산 할 수 없습니다.", Toast.LENGTH_SHORT).show();
+
+        } else {
 
             if (!(money_check.equals("")) && !(people_check.equals(""))) {
                 String name[] = new String[Integer.valueOf(mPeopleNumText.getText().toString())];
+
+
                 if (mCheckName.isChecked()) {
                     Intent intent = new Intent(MainActivityW2.this, Calculation.class);
                     for (int i = 0; i < Integer.valueOf(mPeopleNumText.getText().toString()); i++) {
 
-                        TextView NameTexts = (TextView) mAddNameLay.findViewWithTag("NameView" + i);
+                        EditText NameTexts = (EditText) mAddNameLay.findViewWithTag("NameView" + i);
                         if (NameTexts.getText().toString().trim().equals("")) {
                             intent.putExtra("name2" + i, "" + (i + 1));
                         } else {
                             name[i] = NameTexts.getText().toString();
                             intent.putExtra("name2" + i, name[i]);
-                        }
 
+//                            ================================ 수정 하기 =======================
+                        }
 
                     }
 
@@ -313,6 +326,8 @@ public class MainActivityW2 extends AppCompatActivity  {
                     } else if (mRadioButton0.isChecked()) {
                         intent.putExtra("division", 1);
                     }
+
+
                     intent.putExtra("title", mTitleText.getText().toString());
                     intent.putExtra("money", mMoneyText.getText().toString().replace(",", ""));
                     intent.putExtra("people", mPeopleNumText.getText().toString());
@@ -330,6 +345,7 @@ public class MainActivityW2 extends AppCompatActivity  {
                 Toast.makeText(this, "사람 수를 입력 해 주세요", Toast.LENGTH_SHORT).show();
             } else if ((money_check.equals("")) && !(people_check.equals(""))) {
                 Toast.makeText(this, "금액 입력 해 주세요", Toast.LENGTH_SHORT).show();
+
             } else {
                 Toast.makeText(this, "금액과 사람 수를 입력 해 주세요", Toast.LENGTH_SHORT).show();
             }
