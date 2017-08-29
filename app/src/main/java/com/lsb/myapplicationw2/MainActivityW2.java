@@ -22,7 +22,13 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 import java.text.DecimalFormat;
+
+import static android.R.attr.name;
 
 public class MainActivityW2 extends AppCompatActivity {
 
@@ -36,6 +42,7 @@ public class MainActivityW2 extends AppCompatActivity {
     private RadioButton mRadioButton100;
     private RadioButton mRadioButton1000;
     private RadioButton mRadioButton0;
+    private AdView mAdView;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
 
@@ -44,6 +51,13 @@ public class MainActivityW2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_w2);
 
+
+
+        mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+        MobileAds.initialize(this, "ca-app-pub-4137577130712331~4005504215");
 
         mTitleText = (EditText) findViewById(R.id.edit_title);
         mMoneyText = (EditText) findViewById(R.id.edit_money);
@@ -146,15 +160,16 @@ public class MainActivityW2 extends AppCompatActivity {
                             name_text.setTextSize(24);
 
 
-                            name_text.requestFocus();
+//                            name_text.requestFocus();
                             name_text.setImeOptions(EditorInfo.IME_ACTION_NEXT);
                             name_text.setInputType(InputType.TYPE_CLASS_TEXT);
 
 
                             name_text.setHint((i + 1) + ". " + "이름을 입력 해 주세요");
                             name_text.setTag("NameView" + i);
-                            name_text.setId(i);
+//                            name_text.setId(i);
                             mAddNameLay.addView(name_text);
+
                         }
                     }
                 } else {
@@ -180,6 +195,7 @@ public class MainActivityW2 extends AppCompatActivity {
             }
 
         });
+
 
 
     }
@@ -212,11 +228,14 @@ public class MainActivityW2 extends AppCompatActivity {
                 name_text.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
                 name_text.setPadding(20, 10, 10, 10);
                 name_text.setTextSize(24);
-                name_text.requestFocus();
+
+//                name_text.requestFocus();
                 name_text.setImeOptions(EditorInfo.IME_ACTION_NEXT);
                 name_text.setInputType(InputType.TYPE_CLASS_TEXT);
+
+
                 name_text.setHint((i + 1) + ". " + "이름을 입력 해 주세요");
-                name_text.setId(i);
+//                name_text.setId(i);
 
                 name_text.setTag("NameView" + i);
 
@@ -267,10 +286,10 @@ public class MainActivityW2 extends AppCompatActivity {
                     name_text.setPadding(20, 10, 10, 10);
                     name_text.setTextSize(24);
                     name_text.setHint((i + 1) + ". " + "이름을 입력 해 주세요");
-                    name_text.requestFocus();
+//                    name_text.requestFocus();
                     name_text.setImeOptions(EditorInfo.IME_ACTION_NEXT);
                     name_text.setInputType(InputType.TYPE_CLASS_TEXT);
-                    name_text.setId(i);
+//                    name_text.setId(i);
                     name_text.setTag("NameView" + i);
                     mAddNameLay.addView(name_text);
                 }

@@ -1,181 +1,211 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.lsb.myapplicationw2.SimpleCalculation">
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context="com.lsb.myapplicationw2.SimpleCalculation">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="56dp"
+
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="제목  :  "
+                            android:textSize="24sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="8dp"
+                            android:text="금액  :  "
+                            android:textSize="24sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="8dp"
+                            android:text="총원  :  "
+                            android:textSize="24sp" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:id="@+id/simple_title_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="제목 표시 텍스트"
+                            android:textSize="24sp" />
+
+
+                        <TextView
+                            android:id="@+id/simple_maxmoney_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="8dp"
+                            android:text="총 금액 표시 텍스트"
+                            android:textSize="24sp" />
+
+                        <TextView
+                            android:id="@+id/simple_peoplenum_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="8dp"
+                            android:text="총 원 표시 텍스트"
+                            android:textSize="24sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="16dp">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="한 사람당 금액은!"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/simple_money_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="8dp"
+                        android:text="한 사람당 금액 표시 텍스트"
+                        android:textSize="24sp" />
+
+                </LinearLayout>
+
+
+                <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+
+                <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="계좌번호 추가하기" />-->
+
+                <!--<CheckBox-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="계좌번호 추가" />-->
+
+                <!--</LinearLayout>-->
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingTop="16dp"
+                    android:text="필요하시면 입력 해 주세요"
+                    android:textSize="18dp" />
+
+
+                <LinearLayout
+                    android:id="@+id/simple_pay_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="24dp"
+                    android:paddingTop="16dp">
+
+                    <EditText
+                        android:id="@+id/simple_bank_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="은행 이름"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/simple_bank_num"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:digits="0123456789-"
+                        android:gravity="center"
+                        android:hint="계좌 번호"
+                        android:imeOptions="actionDone"
+                        android:inputType="numberSigned"
+                        android:textSize="18sp" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingTop="56dp"
+        android:orientation="horizontal">
 
-        >
-
-        <LinearLayout
+        <Button
+            android:background="@drawable/round"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center">
+            android:onClick="onClickButton"
+            android:text="전    송"
+            android:textStyle="bold"
+            android:textSize="18sp" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="제목  :  "
-                    android:textSize="24sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="8dp"
-                    android:text="금액  :  "
-                    android:textSize="24sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="8dp"
-                    android:text="총원  :  "
-                    android:textSize="24sp" />
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-
-                <TextView
-                    android:id="@+id/simple_title_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="제목 표시 텍스트"
-                    android:textSize="24sp" />
-
-
-                <TextView
-                    android:id="@+id/simple_maxmoney_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="8dp"
-                    android:text="총 금액 표시 텍스트"
-                    android:textSize="24sp" />
-
-                <TextView
-                    android:id="@+id/simple_peoplenum_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="8dp"
-                    android:text="총 원 표시 텍스트"
-                    android:textSize="24sp" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingTop="16dp">
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="한 사람당 금액은!"
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/simple_money_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingTop="8dp"
-                android:text="한 사람당 금액 표시 텍스트"
-                android:textSize="24sp" />
-
-        </LinearLayout>
-
-
-        <!--<LinearLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content">-->
-
-        <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="계좌번호 추가하기" />-->
-
-        <!--<CheckBox-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="계좌번호 추가" />-->
-
-        <!--</LinearLayout>-->
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:paddingTop="16dp"
-            android:text="필요하시면 입력 해 주세요"
-            android:textSize="18dp" />
-
-
-        <LinearLayout
-            android:id="@+id/simple_pay_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="24dp"
-            android:paddingTop="16dp">
-
-            <EditText
-                android:id="@+id/simple_bank_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="은행 이름"
-                android:imeOptions="actionNext"
-                android:inputType="text"
-                android:textSize="18sp" />
-
-            <EditText
-                android:id="@+id/simple_bank_num"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:digits="0123456789-"
-                android:gravity="center"
-                android:hint="계좌 번호"
-                android:inputType="numberSigned"
-                android:textSize="18sp" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="onClickButton"
-                android:text="보내기"
-                android:textSize="16sp" />
-
-
-        </LinearLayout>
 
     </LinearLayout>
 
-</ScrollView>
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id" />
+</LinearLayout>

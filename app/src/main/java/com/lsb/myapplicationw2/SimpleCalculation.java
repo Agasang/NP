@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.text.DecimalFormat;
 
 
@@ -21,10 +24,16 @@ public class SimpleCalculation extends AppCompatActivity {
     private String mSendDisplay;
     private int division_throw_money;
 
+    private AdView mAdView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_simple_calculation);
+
+        mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         mTitleText = (TextView) findViewById(R.id.simple_title_text);
         mPeopleNum = (TextView) findViewById(R.id.simple_peoplenum_text);
@@ -44,7 +53,7 @@ public class SimpleCalculation extends AppCompatActivity {
             String money = getIntent().getStringExtra("money");
             String money2 = getIntent().getStringExtra("money2");
 
-            int division = getIntent().getIntExtra("division" ,0);
+            int division = getIntent().getIntExtra("division", 0);
 
 
             if (division == 0) {
@@ -60,17 +69,16 @@ public class SimpleCalculation extends AppCompatActivity {
             } else {
                 int people_money = (Integer.valueOf(money) / Integer.valueOf(people_num));
 
-                int division_people_money = (int)  ((double) people_money  - (people_money%division));
+                int division_people_money = (int) ((double) people_money - (people_money % division));
 
-                division_throw_money = (int)  ((double) (people_money%division));
+                division_throw_money = (int) ((double) (people_money % division));
 
                 mTitleText.setText(name);
                 mPeopleNum.setText(people_num);
                 mMaxmoneyText.setText(money2 + "원");
 
                 mMoneyText.setText(comma.format(Long.parseLong(String.valueOf(division_people_money).replaceAll(",", "")))
-                        + "원 입니다." +"\n" +"\t"+"\t"+"\t"+"\t" + "(" + division_throw_money +")"+ "원 절사");
-
+                        + "원 입니다." + "\n" + "\t" + "\t" + "\t" + "\t" + "(" + division_throw_money + ")" + "원 절사");
 
 
             }
@@ -85,7 +93,7 @@ public class SimpleCalculation extends AppCompatActivity {
     private void display() {
         if (mBankNeme.getText().toString().isEmpty() && mBankNum.getText().toString().isEmpty()) {
             mSendDisplay = "제  목  :  " + mTitleText.getText().toString() + "\n" + "\n"
-                    + "금  액  :  " + mMaxmoneyText.getText().toString() +  "\n" + "\n"
+                    + "금  액  :  " + mMaxmoneyText.getText().toString() + "\n" + "\n"
                     + "총  원  :  " + mPeopleNum.getText().toString() + "명" + "\n" + "\n"
                     + "==================" + "\n"
                     + "     한 사람 당" + "\n"
@@ -93,7 +101,7 @@ public class SimpleCalculation extends AppCompatActivity {
 
         } else {
             mSendDisplay = "제  목  :  " + mTitleText.getText().toString() + "\n" + "\n"
-                    + "금  액  :  " + mMaxmoneyText.getText().toString() +  "\n" + "\n"
+                    + "금  액  :  " + mMaxmoneyText.getText().toString() + "\n" + "\n"
                     + "총  원  :  " + mPeopleNum.getText().toString() + "명" + "\n" + "\n"
                     + "==================" + "\n"
                     + "     한 사람 당" + "\n"

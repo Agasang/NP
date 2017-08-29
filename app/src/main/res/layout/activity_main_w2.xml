@@ -1,198 +1,224 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.lsb.myapplicationw2.MainActivityW2">
-
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingBottom="8dp"
-        android:paddingTop="8dp">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
 
-        <LinearLayout
+
+        <ScrollView xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:paddingTop="24dp">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingTop="10dp"
-                        android:text="그룹 제목 "
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingTop="20dp"
-                        android:text="총 금액   "
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingTop="21dp"
-                        android:text="참가 인원   "
-                        android:textSize="18sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <EditText
-                        android:id="@+id/edit_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:hint="1차,2차, 메뉴 등"
-                        android:imeOptions="actionNext"
-                        android:inputType="text"
-                        android:textSize="18sp" />
-
-                    <EditText
-                        android:id="@+id/edit_money"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:hint="총 금액"
-                        android:imeOptions="actionNext"
-                        android:inputType="number"
-                        android:textSize="18sp" />
-
-                    <EditText
-                        android:id="@+id/edit_peoplenum"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:hint="인원 수"
-                        android:imeOptions="actionNext"
-                        android:inputType="number"
-                        android:textSize="18sp" />
-                </LinearLayout>
-
-            </LinearLayout>
+            tools:context="com.lsb.myapplicationw2.MainActivityW2">
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:orientation="vertical"
+                android:paddingBottom="8dp"
                 android:paddingTop="8dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="상세한 계산을 원한다면 체크 "
-                    android:textSize="18sp" />
-
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-
-                    <CheckBox
-                        android:id="@+id/checkbox_name_check"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:onClick="onCheckBoxClicked"
-                        android:text="이름 추가"
-                        android:textSize="18sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:paddingTop="24dp">
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="버리는 단위"
-                        android:textSize="16sp" />
-
-                    <RadioGroup
-
-                        android:id="@+id/radio_group_button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
-                        <RadioButton
-                            android:id="@+id/radio_button_0"
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:checked="true"
-                            android:text="없음" />
+                            android:orientation="vertical">
 
-                        <RadioButton
-                            android:id="@+id/radio_button_10"
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="10dp"
+                                android:text="그룹 제목 "
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="20dp"
+                                android:text="총 금액   "
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="21dp"
+                                android:text="참가 인원   "
+                                android:textSize="18sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1원 " />
+                            android:orientation="vertical">
 
-                        <RadioButton
-                            android:id="@+id/radio_button_100"
+                            <EditText
+                                android:id="@+id/edit_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:hint="1차,2차, 메뉴 등"
+                                android:imeOptions="actionNext"
+                                android:inputType="text"
+                                android:textSize="18sp" />
+
+                            <EditText
+                                android:id="@+id/edit_money"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:hint="총 금액"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:textSize="18sp" />
+
+                            <EditText
+                                android:id="@+id/edit_peoplenum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:hint="인원 수"
+                                android:inputType="number"
+                                android:textSize="18sp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingTop="8dp">
+
+                        <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="10원 " />
+                            android:text="상세한 계산을 원한다면 체크 "
+                            android:textSize="18sp" />
 
-                        <RadioButton
-                            android:id="@+id/radio_button_1000"
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+
+                            <CheckBox
+                                android:id="@+id/checkbox_name_check"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:onClick="onCheckBoxClicked"
+                                android:text="이름 추가"
+                                android:textSize="18sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="100원 " />
+                            android:orientation="vertical">
 
-                    </RadioGroup>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="버리는 단위"
+                                android:textSize="16sp" />
+
+                            <RadioGroup
+
+                                android:id="@+id/radio_group_button"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:id="@+id/radio_button_0"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:checked="true"
+                                    android:text="없음" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_button_10"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="1원 " />
+
+                                <RadioButton
+                                    android:id="@+id/radio_button_100"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="10원 " />
+
+                                <RadioButton
+                                    android:id="@+id/radio_button_1000"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="100원 " />
+
+                            </RadioGroup>
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/add_view_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="8dp"
+                    android:visibility="gone">
 
 
                 </LinearLayout>
+
+
             </LinearLayout>
-        </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/add_view_lay"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingTop="8dp"
-            android:visibility="gone">
-
-
-        </LinearLayout>
-
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onClickButton"
-            android:padding="8dp"
-            android:text="확인"
-            android:textSize="18sp" />
-
+        </ScrollView>
 
     </LinearLayout>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round"
+        android:onClick="onClickButton"
+        android:padding="8dp"
+        android:text="확    인"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
-</ScrollView>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id">
+
+    </com.google.android.gms.ads.AdView>
+</LinearLayout>
